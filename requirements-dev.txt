@@ -1,0 +1,8 @@
+-r requirements.txt
+coverage==4.1b2
+flake8==2.5.4
+flake8-debugger==1.4.0
+flake8-quotes==0.2.4
+pep8-naming==0.3.3
+pytest==2.9.1
+sure==1.2.24
