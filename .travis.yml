@@ -1,0 +1,26 @@
+language: python
+
+sudo: false
+
+matrix:
+  include:
+    - python: 2.7
+      env:
+        - TASK=py27
+    - python: 3.5
+      env:
+        - TASK=py35
+    - python: 2.7
+      env:
+        - TASK=flake8
+
+install:
+  - pip install tox
+
+script:
+  - tox -e $TASK
+
+notifications:
+  webhooks:
+    urls:
+      - https://wizeline-webhooks.appspot.com/travis/notifications
