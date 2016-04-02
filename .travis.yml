@@ -4,9 +4,12 @@ sudo: false
 
 matrix:
   include:
-    - python: 2.7
+    - python: 3.3
       env:
-        - TASK=py27
+        - TASK=py33
+    - python: 3.4
+      env:
+        - TASK=py34
     - python: 3.5
       env:
         - TASK=py35
