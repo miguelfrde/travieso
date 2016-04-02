@@ -10,13 +10,6 @@
 pip-selfcheck.json
 *.egg-info/
 
-# Virtualenv
-bin/
-lib/
-include/
-man/
-.Python
-
 # Other
 .tox/
 .coverage
