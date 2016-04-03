@@ -17,7 +17,7 @@
 
 Show TravisCI build jobs on Github.
 
-**TODO: add gif of the status in a github repo**
+![travieso](travieso.gif)
 
 
 ## Deploy
