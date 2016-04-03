@@ -11,7 +11,8 @@ from flask import abort, request
 
 TRAVIS_TOKEN = os.getenv('TRAVIS_TOKEN', '')
 GITHUB_TOKEN = os.getenv('GITHUB_TOKEN', '')
-TRAVIS_JOB_URL = 'https://travis-ci.com/{account}/{repo}/jobs/{job_id}'
+TRAVIS_PRIVATE_JOB_URL = 'https://travis-ci.com/{account}/{repo}/jobs/{job_id}'
+TRAVIS_PUBLIC_JOB_URL = 'https://travis-ci.org/{account}/{repo}/jobs/{job_id}'
 GITHUB_API_BASE_URL = 'https://api.github.com'
 
 
@@ -62,13 +63,18 @@ def get_description_from_task(job_task):
     return 'Build job on TravisCI'
 
 
-def notify_github(repository, commit, state, job_task, job_id):
+def get_job_url(repo_owner, repo_name, job_id, build_url):
+    if 'travis-ci.com' in build_url:
+        return TRAVIS_PRIVATE_JOB_URL.format(account=repo_owner, repo=repo_name, job_id=job_id)
+    return TRAVIS_PUBLIC_JOB_URL.format(account=repo_owner, repo=repo_name, job_id=job_id)
+
+
+def notify_github(repository, commit, state, job_task, job_url):
     url = '{0}/repos/{1}/{2}/statuses/{3}'.format(
         GITHUB_API_BASE_URL, repository['owner_name'], repository['name'], commit)
     payload = {
         'state': state,
-        'target_url': TRAVIS_JOB_URL.format(
-            account=repository['owner_name'], repo=repository['name'], job_id=job_id),
+        'target_url': job_url,
         'description': get_description_from_task(job_task),
         'context': job_task
     }

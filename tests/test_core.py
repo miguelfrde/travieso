@@ -6,7 +6,9 @@ from uuid import uuid4
 import requests
 import responses
 
-from travieso.core import notify_github, get_description_from_task, get_job_github_state, get_job_task
+from travieso.core import (
+    notify_github, get_description_from_task, get_job_github_state, get_job_task, get_job_url,
+    TRAVIS_PRIVATE_JOB_URL, TRAVIS_PUBLIC_JOB_URL)
 from tests.conftest import TEST_TRAVIS_TOKEN
 
 
@@ -52,6 +54,18 @@ def test_get_job_task():
 
 def test_get_description_from_task(faker):
     assert get_description_from_task(faker.domain_word()) == 'Build job on TravisCI'
+
+
+def test_get_job_url(faker):
+    account = faker.domain_word()
+    repo = faker.domain_word()
+    job_id = random.randint(1, 10000)
+    private_build_url = 'https://travis-ci.com/account/{0}/{1}/{2}'.format(account, repo, job_id)
+    public_build_url = 'https://travis-ci.org/account/{0}/{1}/{2}'.format(account, repo, job_id)
+    private_job_url = TRAVIS_PRIVATE_JOB_URL.format(account=account, repo=repo, job_id=job_id)
+    public_job_url = TRAVIS_PUBLIC_JOB_URL.format(account=account, repo=repo, job_id=job_id)
+    assert get_job_url(account, repo, job_id, private_build_url) == private_job_url
+    assert get_job_url(account, repo, job_id, public_build_url) == public_job_url
 
 
 @responses.activate

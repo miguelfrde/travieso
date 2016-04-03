@@ -2,6 +2,7 @@ from unittest.mock import patch, call
 from uuid import uuid4
 import requests
 
+from travieso.core import TRAVIS_PRIVATE_JOB_URL
 from tests.conftest import TEST_TRAVIS_TOKEN
 
 
@@ -36,6 +37,8 @@ def test_success_build(app, successful_payload, travis_token):
 
         assert resp.status_code == requests.codes.ok
 
-        calls = [call(repo, commit, 'success', task, job_id + i) for i, task in enumerate(['py27', 'py35', 'flake8'])]
+        calls = [call(repo, commit, 'success', task, TRAVIS_PRIVATE_JOB_URL.format(
+                        account='wizeline', repo='awesome', job_id=job_id + i))
+                 for i, task in enumerate(['py27', 'py35', 'flake8'])]
 
         notify_github_mock.assert_has_calls(calls)
