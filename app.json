@@ -10,7 +10,7 @@
     },
     "TRAVIS_TOKEN": {
       "description": "Travis token for the user that activated the repo on Travis to authenticate the webhook",
-      "required": false
+      "required": true
     }
   }
 }

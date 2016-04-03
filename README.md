@@ -1,6 +1,6 @@
 # travieso
 
-[![Build Status](https://travis-ci.com/wizeline/travieso.svg&branch=master)](https://travis-ci.com/wizeline/travieso)
+[![Build Status](https://travis-ci.org/wizeline/travieso.svg?branch=master)](https://travis-ci.org/wizeline/travieso)
 
 
 ## Contents
