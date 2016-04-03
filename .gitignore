@@ -1,0 +1,17 @@
+# OSX
+.DS_Store
+*.app
+.Spotlight-V100
+.Trashes
+
+# Python
+*.py[cod]
+*.egg
+pip-selfcheck.json
+*.egg-info/
+
+# Other
+.tox/
+.coverage
+cover/
+.cache/

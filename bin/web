@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ "$ENVIRONMENT" = "local" ]; then
+  gunicorn -w 5 travieso:app --log-level debug
+else
+  gunicorn -w 5 -b 0.0.0.0:$PORT travieso:app
+fi
