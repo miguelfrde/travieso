@@ -4,21 +4,10 @@
 .Spotlight-V100
 .Trashes
 
-# Python
-*.py[cod]
-*.egg
-pip-selfcheck.json
-*.egg-info/
-
-# Virtualenv
-bin/
-lib/
-include/
-man/
-.Python
-
-# Other
-.tox/
+# master
 .coverage
-cover/
-.cache/
+.tox/
+tests/
+travieso/
+
+_site/
