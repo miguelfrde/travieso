@@ -1,6 +1,6 @@
 {
   "name": "travieso",
-  "description": "Show TravisCI build jobs on Github.",
+  "description": "Show Travis CI build jobs on Github.",
   "repository": "https://github.com/wizeline/travieso",
   "keywords": ["python", "flask", "github", "travis", "ci", "pull requests", "status"],
   "env": {

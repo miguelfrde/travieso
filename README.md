@@ -17,7 +17,7 @@
 
 ## About
 
-Travieso allows to see TravisCI build jobs directly on Github to quickly see exactly which part of the build failed.
+Travieso allows to see Travis CI build jobs directly on Github to quickly see exactly which part of the build failed.
 
 ![travieso](travieso.gif)
 
@@ -37,7 +37,7 @@ notifications:
 
 Besides make sure you do the following:
 
-- Make sure that the TravisCI token you use when configuring the app (`$TRAVIS_TOKEN`) is the TravisCI token for the
+- Make sure that the Travis CI token you use when configuring the app (`$TRAVIS_TOKEN`) is the Travis CI token for the
 user that was used to setup the repository. You can find this token, which you can find in the user's profile
 page. [More information](https://docs.travis-ci.com/user/notifications/#Authorization-for-Webhooks).
 
