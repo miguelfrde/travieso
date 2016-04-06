@@ -60,7 +60,7 @@ def get_job_task(job):
 
 def get_description_from_task(job_task):
     # TODO: allow to configure custom messages for each expected task
-    return 'Build job on TravisCI'
+    return 'Build job on Travis CI'
 
 
 def get_job_url(repo_owner, repo_name, job_id, build_url):

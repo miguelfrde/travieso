@@ -53,7 +53,7 @@ def test_get_job_task():
 
 
 def test_get_description_from_task(faker):
-    assert get_description_from_task(faker.domain_word()) == 'Build job on TravisCI'
+    assert get_description_from_task(faker.domain_word()) == 'Build job on Travis CI'
 
 
 def test_get_job_url(faker):
