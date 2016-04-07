@@ -33,15 +33,19 @@ notifications:
   webhooks:
     urls:
       - https://travieso.example.com/notifications
+    on_success: always  # default
+    on_failure: always  # default
+    on_start: always    # default is never
 ```
 
-Besides make sure you do the following:
+Besides that make sure you do the following:
 
-- Make sure that the Travis CI token you use when configuring the app (`$TRAVIS_TOKEN`) is the Travis CI token for the
-user that was used to setup the repository. You can find this token, which you can find in the user's profile
-page. [More information](https://docs.travis-ci.com/user/notifications/#Authorization-for-Webhooks).
+- The Travis CI token you use when configuring the app (`$TRAVIS_TOKEN`) is the Travis CI token for the
+user that was used to setup the repository. You can find this toke in the user's profile page. You can change it in
+your repo settings: `https://github.com/[Your account]/[Your repo]/settings/hooks/[Travis CI hook service ID]`.
+[More information](https://docs.travis-ci.com/user/notifications/#Authorization-for-Webhooks).
 
-- Make sure the GitHub token that you use has the `repo:status` scope enabled.
+- The GitHub token that you use should have the `repo:status` scope enabled.
 [Click here](https://github.com/settings/tokens/new) to generate this token for your GitHub account.
 
 - Don't forget to add an environment variable `TASK=job_name` to each of your matrix tasks. This is the environment variable that

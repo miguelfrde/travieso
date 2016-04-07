@@ -2,7 +2,7 @@
   "name": "travieso",
   "description": "Show Travis CI build jobs on Github.",
   "repository": "https://github.com/wizeline/travieso",
-  "logo": "https://github.com/wizeline/travieso/blob/master/travieso.png",
+  "logo": "https://raw.githubusercontent.com/wizeline/travieso/master/travieso.png",
   "keywords": ["python", "flask", "github", "travis", "ci", "pull requests", "status"],
   "env": {
     "GITHUB_TOKEN": {
