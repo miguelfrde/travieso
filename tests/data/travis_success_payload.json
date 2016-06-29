@@ -31,7 +31,7 @@
                 "before_script": [],
                 "dist": "precise",
                 "env": [
-                    "TASK=py27"
+                    "TASK=py27 OTHERENVVAR=foobar"
                 ],
                 "python": 3.5,
                 "sudo": false,

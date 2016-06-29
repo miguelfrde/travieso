@@ -53,7 +53,7 @@ def get_job_github_state(travis_status, travis_state):
 
 def get_job_task(job):
     for env in job['config']['env']:
-        match = re.search(r'TASK=(.+)', env)
+        match = re.search(r'TASK=(\S+)', env)
         if match:
             return match.group(1)
 
