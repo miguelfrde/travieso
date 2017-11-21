@@ -10,9 +10,12 @@ blueprint = Blueprint('travis', __name__)
 @blueprint.route('/notifications', methods=['POST'])
 @authorize_travis
 def handle_notification(payload):
+    head_commit = payload['head_commit']
     for job in payload['matrix']:
         state = get_job_github_state(job['status'], job['state'])
-        commit = job['commit']
+        # For pull requests, the commit_sha we get back is that of the merge_commit_sha.
+        # We don't want this!
+        commit = head_commit if payload['type'] == 'pull_request' else job['commit']
         job_id = job['id']
         job_task = get_job_task(job)
 
